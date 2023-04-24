@@ -1,0 +1,54 @@
+{% extends "Suscripcion/layout.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row my-4 text-center">
+
+    
+
+    
+
+    <div class="col">
+            
+        <div class="card footer text-faded text-center py-5">
+            {% if "valido" in request.GET %}
+
+            <p style="color: aliceblue;">Se envio la información</p>
+
+            {% endif %}
+            <div class="card-bady container-sm">
+                <img src="/Newslatter/Suscripcion/static/Suscripcion/img/BG.png" class="img-fluid rounded-circle" style="max-width: 8rem;" >
+            <div class="card-body">
+                
+                
+                <div class="contenedorFormulario">
+                    
+                    <h1>Suscripción a la newsletter</h1>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button type="submit">Suscribirse</button>
+                    </form>
+                        
+                      
+                </div>    
+
+                
+                        </div> 
+                        
+
+            </div>  
+            
+              
+        </div>
+
+
+    </div>  
+
+
+
+    
+</div>
+
+{% endblock %}
+

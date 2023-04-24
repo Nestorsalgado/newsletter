@@ -1,0 +1,93 @@
+<html lang="es">
+  
+<head>
+
+{% load static %}
+<title>Sublisof</title>
+    <!-- Bootstrap -->
+    <link href="{% static 'SubliApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+     <!-- Fonts -->
+    
+     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+     
+
+    <!-- Styles -->
+    <link href="{% static 'SubliApp/css/gestion.css' %}" rel="stylesheet">
+</head>
+
+<body>
+   
+<div style="background-color: rgb(208, 0, 255); text-align: right;">
+{% if user.is_authenticated %}
+  Hola {{user.username}}  &nbsp;&nbsp;  <a href="#" style="color: aliceblue;">Cerrar sesion</a> .
+{% else %}
+<a href="#"style="color: aliceblue;">Login</a> &nbsp;&nbsp; <a href="#" style="color: aliceblue;">Regitrate</a>
+{% endif %}
+</div>
+
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Gestión de Pedidos</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item {%if request.path == '/' %} active {%endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="#">Inicio</a>
+          </li>
+          <li class="nav-item {%if request.path == '/servicios/' %} active {%endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="#">Servicios</a>
+          </li>
+          <li class="nav-item {%if request.path == '/tienda/' %} active {%endif %} px-lg-4"> 
+            <a class="nav-link text-uppercase text-expanded" href="#">Tienda</a>
+          </li>
+          <li class="nav-item {%if request.path == '/contacto/' %} active {%endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="#">Contacto</a>
+          </li>
+          
+          <li class="nav-item {%if request.path == '/newsletter/' %} active {%endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url  'suscripcion' %}">Newsletter</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item {%if request.path == '/blog/' %} active {%endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url  'blog:posts' %}">correos</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+        {% block content %}
+
+        {% endblock %}
+
+
+        
+
+    <!-- Footer -->
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <a href="#"class="link">&copy;Todos los derechos reservados :: NESG :: México 2022</a>
+        <p class="m-0 mbt">
+        	 
+        	<a href="sample.html" class="link">Aviso legal</a> ·
+        	<a href="sample.html" class="link">Cookies</a>
+		</p>
+        <p class="m-0 mbt1">&copy; SUBLIMACIONES SUBLISOF 2022</p>
+      </div>
+	</footer>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'SubliApp/vendor/jquery/jquery.min.js ' %}"></script>
+    <script src="{% static 'SubliApp/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+
+</html>
