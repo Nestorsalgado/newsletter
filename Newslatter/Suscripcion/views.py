@@ -14,10 +14,10 @@ def vistasus(request):
             form.save()
             try:
                 
-                return redirect("/suscripcion/?valido")
+                return redirect("/blog/?valido")
                 
             except:
-                return redirect("/suscripcion/?novalido")
+                return redirect("/blog/?novalido")
            
             
     return render(request,"Suscripcion/suscripcion.html", {'form':form})

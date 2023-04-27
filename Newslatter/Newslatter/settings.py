@@ -129,8 +129,10 @@ EMAIL_HOST="smtp.gmail.com"
 EMAIL_USE_TLS=True
 EMAIL_PORT=587
 EMAIL_HOST_USER="nestore.salgado@gmail.com"
-EMAIL_HOST_PASSWORD="kecwuxazxdetfktw"
+EMAIL_HOST_PASSWORD="zqqrkcrffeyjgrhf"
 
+CELERY_BROKER_URL = "redis://redis:clustercfg.radis-sublisof.lgrnyw.memorydb.us-east-2.amazonaws.com:6379"
+CELERY_RESULT_BACKEND = "redis://redis:clustercfg.radis-sublisof.lgrnyw.memorydb.us-east-2.amazonaws.com:6379"
 
 MESSAGE_TAGS={
     mensajes_de_error.DEBUG: 'debug',
